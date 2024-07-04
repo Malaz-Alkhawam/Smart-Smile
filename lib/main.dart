@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 import 'package:smart_smile/core/constants/theme_provider.dart';
+import 'package:smart_smile/core/utils/camera_provider.dart';
+import 'package:smart_smile/presentation/screens/screens/screens/camera_scan_Screen.dart';
 import 'package:smart_smile/presentation/screens/screens/screens/main_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        // ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => CameraProvider()),
         // ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
       child: const MyApp(),
