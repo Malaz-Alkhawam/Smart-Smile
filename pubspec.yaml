@@ -64,6 +64,11 @@ flutter:
   assets:
     - images/icons/teethIcon.png
     - images/icons/clinic.png
+    - images/icons/historyIcon.png
+    - images/icons/galleryIcon.png
+    - images/icons/cameraIcon.png
+    - images/icons/camera2Icon.png
+    - images/icons/camera3Icon.png
     - images/face2.jpg
   #   - images/a_dot_ham.jpeg
 

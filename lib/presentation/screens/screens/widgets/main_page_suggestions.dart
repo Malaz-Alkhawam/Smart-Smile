@@ -27,7 +27,7 @@ class MainPageSuggestion extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.1,
+              height: screenHeight * 0.16,
               width: screenWidth,
               child: ListView(
                 scrollDirection: Axis.horizontal,

@@ -24,10 +24,10 @@ class MainPageAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             IconButton(
               onPressed: () {
-                value.changeTheme();
+                // value.changeTheme();
               },
               icon: Icon(
-                Icons.settings_outlined,
+                Icons.person,
                 color: value.iconColor,
               ),
             ),

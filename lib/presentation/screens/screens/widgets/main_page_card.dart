@@ -6,11 +6,15 @@ class MainPageCard extends StatelessWidget {
   final String imagePath;
   final String cardTitle;
   final VoidCallback onPressed;
+  final double height;
+  final double width;
   const MainPageCard({
     super.key,
     required this.imagePath,
     required this.cardTitle,
     required this.onPressed,
+    required this.height,
+    required this.width,
   });
 
   @override
@@ -24,28 +28,35 @@ class MainPageCard extends StatelessWidget {
           onTap: onPressed,
           borderRadius: BorderRadius.circular(15),
           child: Container(
-            height: screenHeight * 0.22,
-            width: screenWidth * 0.36,
+            height: height,
+            width: width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: value.cardsColor,
+              // color: value.cardsColor,
+              color: cardTitle == 'Take \nPhoto'
+                  ? value.firstCardsColor
+                  : value.cardsColor,
             ),
             child: Column(
               children: [
                 Container(
-                  height: screenHeight * 0.11,
-                  width: screenWidth * 0.25,
+                  // color: Colors.red,
+                  height: height * 0.5,
+                  width: width * 0.8,
                   alignment: Alignment.centerLeft,
                   // color: Colors.red,
                   child: Text(
                     cardTitle,
-                    style: value.cardTitleStyle,
+                    style: cardTitle == 'Take \nPhoto'
+                        ? value.firstCardTitleStyle
+                        : value.cardTitleStyle,
                   ),
                 ),
                 Container(
-                  height: screenHeight * 0.08,
-                  width: screenWidth * 0.25,
-                  alignment: Alignment.centerRight,
+                  // color: Colors.red,s
+                  height: height * 0.4,
+                  width: width * 0.4,
+                  alignment: Alignment.center,
                   // color: Colors.red,
                   child: Image.asset(
                     imagePath,

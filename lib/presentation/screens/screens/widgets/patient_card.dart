@@ -26,16 +26,16 @@ class PatientCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: value.patientCardColor,
             borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: !value.isDark
-                    ? Colors.grey.withOpacity(0.2)
-                    : Colors.transparent, // shadow color
-                spreadRadius: 3, // spread radius
-                blurRadius: 4, // blur radius
-                offset: const Offset(0, 0), // changes position of shadow
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: !value.isDark
+            //         ? Colors.grey.withOpacity(0.2)
+            //         : Colors.transparent, // shadow color
+            //     spreadRadius: 3, // spread radius
+            //     blurRadius: 4, // blur radius
+            //     offset: const Offset(0, 0), // changes position of shadow
+            //   ),
+            // ],
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -44,23 +44,23 @@ class PatientCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4.0, horizontal: 4),
-                      child: ClipOval(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          height: screenHeight * 0.07,
-                          width: screenWidth * 0.09,
-                          child: Image.asset(
-                            imagePath,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(
+                    //       vertical: 4.0, horizontal: 4),
+                    //   child: ClipOval(
+                    //     child: Container(
+                    //       decoration: BoxDecoration(
+                    //         borderRadius: BorderRadius.circular(20),
+                    //       ),
+                    //       height: screenHeight * 0.07,
+                    //       width: screenWidth * 0.09,
+                    //       child: Image.asset(
+                    //         imagePath,
+                    //         fit: BoxFit.fill,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(
                       width: screenWidth * 0.02,
                     ),
