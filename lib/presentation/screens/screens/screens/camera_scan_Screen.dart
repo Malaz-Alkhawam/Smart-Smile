@@ -3,46 +3,61 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_smile/core/utils/camera_provider.dart';
 import 'package:smart_smile/presentation/screens/screens/widgets/camera_buttom_navigation_bar.dart';
+import 'package:smart_smile/presentation/screens/screens/widgets/camera_scan_app_bar.dart';
+import 'package:smart_smile/presentation/screens/screens/widgets/default_button.dart';
 
 class CameraScanScreen extends StatelessWidget {
-  const CameraScanScreen({Key? key}) : super(key: key);
-
+  const CameraScanScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Consumer<CameraProvider>(
       builder: (context, value, child) => Scaffold(
+        appBar: const CameraScanAppBar(),
         bottomNavigationBar: const CameraNavigationBar(),
         body: value.cameraController.value.isInitialized
-            ? Stack(
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  CameraPreview(value.cameraController),
-                  GestureDetector(
-                    onTap: () {},
-                    child: button(
-                        Icons.flip_camera_ios_outlined, Alignment.bottomLeft),
+                  SizedBox(
+                    height: screenHeight * 0.40,
+                    width: screenWidth,
+                    child: CameraPreview(value.cameraController),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      value.cameraController.takePicture().then((XFile? file) {
-                        // if (mounted) {
-                        //   if (file != null) {
-                        //     print("Picture saved to ${file.path}");
-                        //   }
-                        // }
-                      });
-                    },
-                    child: button(
-                        Icons.camera_alt_outlined, Alignment.bottomCenter),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: screenWidth,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          DefaultButton(
+                            width: screenWidth * 0.2,
+                            height: screenHeight * 0.1,
+                            onPressed: () {},
+                            iconSize: 30,
+                            icon: Icons.repeat_rounded,
+                            iconColor: Colors.indigoAccent,
+                          ),
+                          DefaultButton(
+                              width: screenWidth * 0.2,
+                              height: screenHeight * 0.1,
+                              iconSize: 50,
+                              onPressed: () {},
+                              icon: Icons.circle_outlined,
+                              iconColor: Colors.indigoAccent),
+                          DefaultButton(
+                              width: screenWidth * 0.2,
+                              height: screenHeight * 0.1,
+                              onPressed: () {},
+                              iconSize: 30,
+                              icon: Icons.camera_alt_outlined,
+                              iconColor: Colors.indigoAccent),
+                        ],
+                      ),
+                    ),
                   ),
-                  // Align(
-                  //   alignment: AlignmentDirectional.topCenter,
-                  //   child: Text(
-                  //     "My Camera",
-                  //     style: TextStyle(
-                  //       fontSize: 30,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               )
             : const Center(
