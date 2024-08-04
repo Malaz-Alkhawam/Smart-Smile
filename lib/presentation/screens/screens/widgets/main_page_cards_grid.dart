@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_smile/core/utils/camera_provider.dart';
+import 'package:smart_smile/presentation/screens/screens/screens/camera_scan_screen.dart';
+import 'package:smart_smile/presentation/screens/screens/screens/history.dart';
+import 'package:smart_smile/presentation/screens/screens/screens/new_case.dart';
 
 import 'main_page_card.dart';
 
@@ -20,12 +25,22 @@ class MainPageCardsGrid extends StatelessWidget {
               MainPageCard(
                 cardTitle: 'Take \nPhoto',
                 imagePath: 'images/icons/clinic.png',
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<CameraProvider>(context, listen: false)
+                      .startCamera();
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CameraScanScreen(),
+                  ));
+                },
               ),
               MainPageCard(
-                cardTitle: 'Take \nPhoto',
+                cardTitle: 'History',
                 imagePath: 'images/icons/clinic.png',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => HistoryPage(),
+                  ));
+                },
               ),
             ],
           ),
@@ -33,9 +48,13 @@ class MainPageCardsGrid extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MainPageCard(
-                cardTitle: 'Take \nPhoto',
+                cardTitle: 'Creat \nNew case',
                 imagePath: 'images/icons/clinic.png',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => NewCase(),
+                  ));
+                },
               ),
               MainPageCard(
                 cardTitle: 'Take \nPhoto',
